@@ -1,5 +1,6 @@
 import { Fish } from '../../core/fish.entity';
-import { DeleteResult } from 'typeorm';
+import { DeleteResult, UpdateResult } from 'typeorm';
+import { UpdateFishyDto } from '../../fishy/dto/update-fishy.dto';
 
 export interface IFishRepository {
   create(
@@ -14,4 +15,6 @@ export interface IFishRepository {
   getFishById(id: number): Promise<Fish>;
 
   removeFish(id: number): Promise<DeleteResult>;
+
+  updateFish(id: number, updateFishyDto: UpdateFishyDto): Promise<Fish>;
 }
