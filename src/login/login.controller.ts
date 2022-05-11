@@ -1,6 +1,6 @@
-import { Controller, Post, Body, Inject } from '@nestjs/common';
-import { CreateLoginDto } from './dto/create-login.dto';
+import { Body, Controller, Inject, Post } from '@nestjs/common';
 import { UsersService } from '../domain/users.service';
+import { CreateLoginDto } from './dto/create-login.dto';
 import { User } from '../core/user.entity';
 
 @Controller('login')
