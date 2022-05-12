@@ -1,5 +1,5 @@
 import { IFishRepository } from '../../../domain/borders/fishRepository.interface';
-import { DeleteResult, EntityManager, Repository } from 'typeorm';
+import { EntityManager, Repository } from 'typeorm';
 import { Fish } from '../../../core/fish.entity';
 import { FishSchema } from '../schemas/fish.schema';
 import { Injectable } from '@nestjs/common';
@@ -27,15 +27,15 @@ export class FishRepositoryAdapter implements IFishRepository {
   }
 
   getAllFish(): Promise<Fish[]> {
-    return this.fishRepo.find();
+    return this.fishRepo.find({ relations: ['User'] });
   }
 
-  getFishById(id: number): Promise<Fish> {
-    return this.fishRepo.findOne({ where: { uuid: id } });
+  getFishById(id: string): Promise<Fish> {
+    return this.fishRepo.findOne({ where: { uuid: id }, relations: ['User'] });
   }
 
   async updateFish(
-    id: number,
+    id: string,
     catchName: string,
     species: string,
     length: number,
@@ -49,7 +49,7 @@ export class FishRepositoryAdapter implements IFishRepository {
     return this.fishRepo.save(updatedFish);
   }
 
-  removeFish(id: number): Promise<DeleteResult> {
-    return this.fishRepo.delete(id);
+  async removeFish(id: string) {
+    await this.fishRepo.delete(id);
   }
 }

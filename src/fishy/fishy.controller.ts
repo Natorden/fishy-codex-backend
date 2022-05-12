@@ -35,13 +35,13 @@ export class FishyController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.fishyService.findOne(+id);
+    return this.fishyService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateFishyDto: UpdateFishyDto) {
     return this.fishyService.update(
-      +id,
+      id,
       updateFishyDto.catchName,
       updateFishyDto.species,
       updateFishyDto.length,

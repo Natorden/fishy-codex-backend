@@ -1,6 +1,6 @@
-import { UpdateUserDto } from '../users/dto/update-user.dto';
 import { User } from '../core/user.entity';
 import { IUserRepository } from './borders/userRepository.interface';
+import { DeleteResult } from 'typeorm';
 
 export class UsersService {
   private userRepo: IUserRepository;
@@ -34,12 +34,18 @@ export class UsersService {
     return this.userRepo.getUsersByIds(ids);
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  update(
+    id: string,
+    name: string,
+    age: number,
+    email: string,
+    password: string,
+  ): Promise<User> {
+    return this.userRepo.updateUser(id, name, age, email, password);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  remove(id: number): Promise<DeleteResult> {
+    return this.userRepo.removeUser(id);
   }
 
   findOne(number: number) {

@@ -24,12 +24,12 @@ export class FishyService {
     return this.fishRepo.getAllFish();
   }
 
-  findOne(id: number): Promise<Fish> {
+  findOne(id: string): Promise<Fish> {
     return this.fishRepo.getFishById(id);
   }
 
   update(
-    id: number,
+    id: string,
     catchName: string,
     species: string,
     length: number,
@@ -38,7 +38,7 @@ export class FishyService {
     return this.fishRepo.updateFish(id, catchName, species, length, weight);
   }
 
-  remove(id: number): Promise<DeleteResult> {
+  remove(id: string) {
     return this.fishRepo.removeFish(id);
   }
 }

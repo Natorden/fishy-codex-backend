@@ -1,6 +1,6 @@
 import { IUserRepository } from '../../../domain/borders/userRepository.interface';
 import { User } from '../../../core/user.entity';
-import { EntityManager, Repository } from 'typeorm';
+import { DeleteResult, EntityManager, Repository } from 'typeorm';
 import { UserSchema } from '../schemas/user.schema';
 import { Injectable } from '@nestjs/common';
 
@@ -42,5 +42,24 @@ export class UserRepositoryAdapter implements IUserRepository {
 
   getUsersByIds(ids: string[]): Promise<User[]> {
     return this.userRepo.findByIds(ids);
+  }
+
+  async updateUser(
+    id: string,
+    name: string,
+    age: number,
+    email: string,
+    password: string,
+  ): Promise<User> {
+    const updatedUser = await this.getUserById(id);
+    updatedUser.name = name;
+    updatedUser.age = age;
+    updatedUser.email = email;
+    updatedUser.password = password;
+    return this.userRepo.save(updatedUser);
+  }
+
+  removeUser(id: number): Promise<DeleteResult> {
+    return this.userRepo.delete(id);
   }
 }

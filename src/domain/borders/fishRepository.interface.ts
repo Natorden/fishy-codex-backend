@@ -11,15 +11,15 @@ export interface IFishRepository {
 
   getAllFish(): Promise<Fish[]>;
 
-  getFishById(id: number): Promise<Fish>;
-
-  removeFish(id: number): Promise<DeleteResult>;
+  getFishById(id: string): Promise<Fish>;
 
   updateFish(
-    id: number,
+    id: string,
     catchName: string,
     species: string,
     length: number,
     weight: number,
   ): Promise<Fish>;
+
+  removeFish(id: string);
 }
