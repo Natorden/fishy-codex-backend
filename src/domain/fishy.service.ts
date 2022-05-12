@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { UpdateFishyDto } from '../fishy/dto/update-fishy.dto';
 import { IFishRepository } from './borders/fishRepository.interface';
 import { Fish } from '../core/fish.entity';
-import { DeleteResult, UpdateResult } from 'typeorm';
+import { DeleteResult } from 'typeorm';
 
 @Injectable()
 export class FishyService {
@@ -29,8 +28,14 @@ export class FishyService {
     return this.fishRepo.getFishById(id);
   }
 
-  update(id: number, updateFishyDto: UpdateFishyDto): Promise<UpdateResult> {
-    return this.fishRepo.updateFish(id,updateFishyDto);
+  update(
+    id: number,
+    catchName: string,
+    species: string,
+    length: number,
+    weight: number,
+  ): Promise<Fish> {
+    return this.fishRepo.updateFish(id, catchName, species, length, weight);
   }
 
   remove(id: number): Promise<DeleteResult> {

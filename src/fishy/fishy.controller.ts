@@ -1,12 +1,12 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
+  Get,
   Inject,
+  Param,
+  Patch,
+  Post,
 } from '@nestjs/common';
 import { FishyService } from '../domain/fishy.service';
 import { CreateFishyDto } from './dto/create-fishy.dto';
@@ -38,10 +38,16 @@ export class FishyController {
     return this.fishyService.findOne(+id);
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateFishyDto: UpdateFishyDto) {
-  //   return this.fishyService.update(+id, updateFishyDto);
-  // }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateFishyDto: UpdateFishyDto) {
+    return this.fishyService.update(
+      +id,
+      updateFishyDto.catchName,
+      updateFishyDto.species,
+      updateFishyDto.length,
+      updateFishyDto.weight,
+    );
+  }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
