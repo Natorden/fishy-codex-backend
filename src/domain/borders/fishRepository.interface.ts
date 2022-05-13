@@ -1,5 +1,5 @@
 import { Fish } from '../../core/fish.entity';
-import { DeleteResult } from 'typeorm';
+import { User } from '../../core/user.entity';
 
 export interface IFishRepository {
   create(
@@ -7,6 +7,7 @@ export interface IFishRepository {
     species: string,
     length: number,
     weight: number,
+    userUuid: string,
   ): Promise<Fish>;
 
   getAllFish(): Promise<Fish[]>;

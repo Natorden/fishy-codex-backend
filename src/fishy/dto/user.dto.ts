@@ -1,6 +1,9 @@
+import { Fish } from '../../core/fish.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class UpdateUserDto {
+export class User {
+  @ApiProperty()
+  uuid: string;
   @ApiProperty()
   name: string;
   @ApiProperty()
@@ -9,4 +12,6 @@ export class UpdateUserDto {
   email: string;
   @ApiProperty()
   password: string;
+  @ApiProperty()
+  fish: Fish[];
 }

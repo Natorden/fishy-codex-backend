@@ -1,5 +1,4 @@
 import { User } from '../../core/user.entity';
-import { DeleteResult } from 'typeorm';
 
 export interface IUserRepository {
   create(
@@ -25,5 +24,5 @@ export interface IUserRepository {
     password: string,
   ): Promise<User>;
 
-  removeUser(id: number): Promise<DeleteResult>;
+  removeUser(id: string);
 }

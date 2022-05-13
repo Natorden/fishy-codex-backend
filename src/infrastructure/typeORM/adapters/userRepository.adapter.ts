@@ -1,6 +1,6 @@
 import { IUserRepository } from '../../../domain/borders/userRepository.interface';
 import { User } from '../../../core/user.entity';
-import { DeleteResult, EntityManager, Repository } from 'typeorm';
+import { EntityManager, Repository } from 'typeorm';
 import { UserSchema } from '../schemas/user.schema';
 import { Injectable } from '@nestjs/common';
 
@@ -59,7 +59,7 @@ export class UserRepositoryAdapter implements IUserRepository {
     return this.userRepo.save(updatedUser);
   }
 
-  removeUser(id: number): Promise<DeleteResult> {
-    return this.userRepo.delete(id);
+  async removeUser(id: string) {
+    await this.userRepo.delete(id);
   }
 }

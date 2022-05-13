@@ -1,4 +1,12 @@
-import { PartialType } from '@nestjs/swagger';
-import { CreateFishyDto } from './create-fishy.dto';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class UpdateFishyDto extends PartialType(CreateFishyDto) {}
+export class UpdateFishyDto {
+  @ApiProperty()
+  catchName: string;
+  @ApiProperty()
+  species: string;
+  @ApiProperty()
+  length: number;
+  @ApiProperty()
+  weight: number;
+}

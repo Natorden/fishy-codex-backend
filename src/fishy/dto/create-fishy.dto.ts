@@ -9,4 +9,6 @@ export class CreateFishyDto {
   length: number;
   @ApiProperty()
   weight: number;
+  @ApiProperty()
+  userUuid: string;
 }

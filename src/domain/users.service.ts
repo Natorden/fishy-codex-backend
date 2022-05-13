@@ -1,6 +1,5 @@
 import { User } from '../core/user.entity';
 import { IUserRepository } from './borders/userRepository.interface';
-import { DeleteResult } from 'typeorm';
 
 export class UsersService {
   private userRepo: IUserRepository;
@@ -44,7 +43,7 @@ export class UsersService {
     return this.userRepo.updateUser(id, name, age, email, password);
   }
 
-  remove(id: number): Promise<DeleteResult> {
+  remove(id: string) {
     return this.userRepo.removeUser(id);
   }
 

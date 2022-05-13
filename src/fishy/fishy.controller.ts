@@ -20,12 +20,16 @@ export class FishyController {
 
   @Post()
   create(@Body() createFishyDto: CreateFishyDto) {
-    return this.fishyService.create(
-      createFishyDto.catchName,
-      createFishyDto.species,
-      createFishyDto.length,
-      createFishyDto.weight,
-    );
+    console.log(createFishyDto);
+    return this.fishyService
+      .create(
+        createFishyDto.catchName,
+        createFishyDto.species,
+        createFishyDto.length,
+        createFishyDto.weight,
+        createFishyDto.userUuid,
+      )
+      .catch((err) => console.log(err.message));
   }
 
   @Get()
@@ -51,6 +55,6 @@ export class FishyController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.fishyService.remove(+id);
+    return this.fishyService.remove(id);
   }
 }

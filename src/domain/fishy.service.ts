@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IFishRepository } from './borders/fishRepository.interface';
 import { Fish } from '../core/fish.entity';
-import { DeleteResult } from 'typeorm';
+import { User } from '../core/user.entity';
 
 @Injectable()
 export class FishyService {
@@ -16,8 +16,9 @@ export class FishyService {
     species: string,
     length: number,
     weight: number,
+    userUuid: string,
   ): Promise<Fish> {
-    return this.fishRepo.create(catchName, species, length, weight);
+    return this.fishRepo.create(catchName, species, length, weight, userUuid);
   }
 
   findAll(): Promise<Fish[]> {
