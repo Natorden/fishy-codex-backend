@@ -44,13 +44,7 @@ export class FishyController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateFishyDto: UpdateFishyDto) {
-    return this.fishyService.update(
-      id,
-      updateFishyDto.catchName,
-      updateFishyDto.species,
-      updateFishyDto.length,
-      updateFishyDto.weight,
-    );
+    return this.fishyService.update(id, updateFishyDto);
   }
 
   @Delete(':id')

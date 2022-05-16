@@ -1,5 +1,5 @@
 import { Fish } from '../../core/fish.entity';
-import { User } from '../../core/user.entity';
+import { UpdateFishyDto } from '../../fishy/dto/update-fishy.dto';
 
 export interface IFishRepository {
   create(
@@ -14,13 +14,7 @@ export interface IFishRepository {
 
   getFishById(id: string): Promise<Fish>;
 
-  updateFish(
-    id: string,
-    catchName: string,
-    species: string,
-    length: number,
-    weight: number,
-  ): Promise<Fish>;
+  updateFish(id: string, updateFishyDto: UpdateFishyDto): Promise<Fish>;
 
   removeFish(id: string);
 }

@@ -3,7 +3,7 @@ import { EntityManager, Repository } from 'typeorm';
 import { Fish } from '../../../core/fish.entity';
 import { FishSchema } from '../schemas/fish.schema';
 import { Injectable } from '@nestjs/common';
-import { User } from '../../../core/user.entity';
+import { UpdateFishyDto } from '../../../fishy/dto/update-fishy.dto';
 
 @Injectable()
 export class FishRepositoryAdapter implements IFishRepository {
@@ -37,18 +37,12 @@ export class FishRepositoryAdapter implements IFishRepository {
     return this.fishRepo.findOne({ where: { uuid: id }, relations: ['user'] });
   }
 
-  async updateFish(
-    id: string,
-    catchName: string,
-    species: string,
-    length: number,
-    weight: number,
-  ): Promise<Fish> {
+  async updateFish(id: string, updateFishyDto: UpdateFishyDto): Promise<Fish> {
     const updatedFish = await this.getFishById(id);
-    updatedFish.catchName = catchName;
-    updatedFish.species = species;
-    updatedFish.length = length;
-    updatedFish.weight = weight;
+    updatedFish.catchName = updateFishyDto.catchName;
+    updatedFish.species = updateFishyDto.species;
+    updatedFish.length = updateFishyDto.length;
+    updatedFish.weight = updateFishyDto.weight;
     return this.fishRepo.save(updatedFish);
   }
 
