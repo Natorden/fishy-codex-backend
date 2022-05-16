@@ -16,5 +16,5 @@ export interface IFishRepository {
 
   updateFish(id: string, updateFishyDto: UpdateFishyDto): Promise<Fish>;
 
-  removeFish(id: string);
+  removeFish(id: string): Promise<any>;
 }

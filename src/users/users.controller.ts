@@ -40,13 +40,16 @@ export class UsersController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(
-      id,
-      updateUserDto.name,
-      updateUserDto.age,
-      updateUserDto.email,
-      updateUserDto.password,
-    );
+    console.log(updateUserDto);
+    return this.usersService
+      .update(
+        id,
+        updateUserDto.name,
+        updateUserDto.age,
+        updateUserDto.email,
+        updateUserDto.password,
+      )
+      .catch((err) => console.log(err.message));
   }
 
   @Delete(':id')

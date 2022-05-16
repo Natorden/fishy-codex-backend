@@ -20,6 +20,7 @@ export class FishRepositoryAdapter implements IFishRepository {
     weight: number,
     userUuid: string,
   ): Promise<Fish> {
+    console.log(catchName, species, length, weight, userUuid);
     return this.fishRepo.save({
       catchName: catchName,
       species: species,
@@ -46,7 +47,7 @@ export class FishRepositoryAdapter implements IFishRepository {
     return this.fishRepo.save(updatedFish);
   }
 
-  async removeFish(id: string) {
-    await this.fishRepo.delete(id);
+  async removeFish(id: string): Promise<any> {
+    return await this.fishRepo.delete(id);
   }
 }

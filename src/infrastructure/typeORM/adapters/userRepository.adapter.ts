@@ -51,6 +51,7 @@ export class UserRepositoryAdapter implements IUserRepository {
     email: string,
     password: string,
   ): Promise<User> {
+    console.log(id, name, age, email, password);
     const updatedUser = await this.getUserById(id);
     updatedUser.name = name;
     updatedUser.age = age;

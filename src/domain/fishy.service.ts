@@ -33,7 +33,7 @@ export class FishyService {
     return this.fishRepo.updateFish(id, updateFishyDto);
   }
 
-  remove(id: string) {
+  remove(id: string): Promise<any> {
     return this.fishRepo.removeFish(id);
   }
 }
