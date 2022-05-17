@@ -60,7 +60,7 @@ export class UserRepositoryAdapter implements IUserRepository {
     return this.userRepo.save(updatedUser);
   }
 
-  async removeUser(id: string) {
-    await this.userRepo.delete(id);
+  async removeUser(id: string): Promise<any> {
+    return await this.userRepo.delete(id);
   }
 }

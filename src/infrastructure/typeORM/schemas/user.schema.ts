@@ -30,5 +30,15 @@ export const UserSchema = new EntitySchema<User>({
       target: 'Fish',
       inverseSide: 'User',
     },
+    chats: {
+      type: 'one-to-many',
+      target: 'Chat',
+      inverseSide: 'user',
+    },
+    chatRooms: {
+      type: 'one-to-many',
+      target: 'ChatRoom',
+      inverseSide: 'user',
+    },
   },
 });
