@@ -8,6 +8,7 @@ export class ChatRoomsController {
 
   @Post()
   create(@Body() createChatRoomDto: CreateChatRoomDto) {
+    console.log(createChatRoomDto);
     return this.chatRoomsService.create(createChatRoomDto);
   }
 

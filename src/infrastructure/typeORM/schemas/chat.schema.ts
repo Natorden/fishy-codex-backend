@@ -15,7 +15,7 @@ export const ChatSchema = new EntitySchema<Chat>({
     },
   },
   relations: {
-    chatRooms: {
+    chatRoom: {
       type: 'many-to-one',
       target: 'ChatRoom',
       joinColumn: true,

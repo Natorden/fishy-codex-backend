@@ -18,10 +18,11 @@ export class ChatRepositoryAdapter implements IChatRepository {
   }
 
   create(createChatDto: CreateChatDto): Promise<Chat> {
+    console.log(createChatDto);
     return this.userRepo.findOne(createChatDto.userUUID).then((user) => {
       return this.chatRepo.save({
         text: createChatDto.text,
-        chatRooms: { uuid: createChatDto.chatRoom },
+        chatRoom: { uuid: createChatDto.chatRoom },
         user: user,
       });
     });

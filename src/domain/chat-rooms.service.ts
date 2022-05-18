@@ -15,7 +15,7 @@ export class ChatRoomsService {
   create(createChatRoomDto: CreateChatRoomDto) {
     return this.chatRoomRepo.create(
       createChatRoomDto.name,
-      createChatRoomDto.userUUID,
+      createChatRoomDto.userUuid,
     );
   }
 
@@ -24,6 +24,7 @@ export class ChatRoomsService {
   }
 
   findOne(uuid: string) {
+    console.log(uuid);
     return this.chatRoomRepo.getWithUuid(uuid);
   }
 }

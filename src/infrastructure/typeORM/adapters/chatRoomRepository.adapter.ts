@@ -4,8 +4,10 @@ import { ChatRoom } from '../../../core/chat-room.entity';
 import { Friend } from '../../../core/friend.entity';
 import { ChatRoomSchema } from '../schemas/chatRoom.schema';
 import { FriendSchema } from '../schemas/friend.schema';
+import { Injectable } from '@nestjs/common';
 
-export class chatRoomRepositoryAdapter implements IChatRoomRepository {
+@Injectable()
+export class ChatRoomRepositoryAdapter implements IChatRoomRepository {
   private chatRoomRepo: Repository<ChatRoom>;
   private friendRepo: Repository<Friend>;
 
@@ -14,10 +16,11 @@ export class chatRoomRepositoryAdapter implements IChatRoomRepository {
     this.friendRepo = em.getRepository(FriendSchema);
   }
 
-  create(name: string, userUUID: string): Promise<ChatRoom> {
+  create(name: string, userUuid: string): Promise<ChatRoom> {
+    console.log(name, userUuid);
     return this.chatRoomRepo.save({
       name: name,
-      user: { uuid: userUUID },
+      user: { uuid: userUuid },
     });
   }
 
@@ -43,8 +46,9 @@ export class chatRoomRepositoryAdapter implements IChatRoomRepository {
       });
   }
 
-  getWithUuid(uuid: string): Promise<ChatRoom> {
-    return this.chatRoomRepo.findOne(uuid, {
+  async getWithUuid(uuid: string): Promise<ChatRoom> {
+    console.log('Bla bly');
+    return await this.chatRoomRepo.findOne(uuid, {
       relations: ['chats', 'chats.user'],
     });
   }

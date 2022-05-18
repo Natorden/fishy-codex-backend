@@ -18,7 +18,7 @@ export const ChatRoomSchema = new EntitySchema<ChatRoom>({
     chats: {
       type: 'one-to-many',
       target: 'Chat',
-      inverseSide: 'room',
+      inverseSide: 'chatRoom',
     },
     user: {
       type: 'many-to-one',
