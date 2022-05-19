@@ -6,4 +6,6 @@ export interface IChatRoomRepository {
   getAll(userUuid: string): Promise<ChatRoom[]>;
 
   getWithUuid(uuid: string): Promise<ChatRoom>;
+
+  deleteChatRoom(id: string): Promise<any>;
 }

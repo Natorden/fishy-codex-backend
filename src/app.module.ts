@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { FishyModule } from './fishy/fishy.module';
@@ -27,7 +26,7 @@ import { FriendRequestsModule } from './friend-requests/friend-requests.module';
     FriendsModule,
     FriendRequestsModule,
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [AppService],
 })
 export class AppModule {}

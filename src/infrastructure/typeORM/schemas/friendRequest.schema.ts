@@ -11,10 +11,10 @@ export const FriendRequestSchema = new EntitySchema<FriendRequest>({
       generated: 'uuid',
     },
     senderUserId: {
-      type: 'int',
+      type: 'uuid',
     },
     receiverUserId: {
-      type: 'int',
+      type: 'uuid',
     },
   },
 });

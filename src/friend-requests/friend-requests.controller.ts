@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Inject,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { FriendRequest } from '../core/friend-request.entity';
 import { FriendRequestsService } from '../domain/friend-requests.service';
 import { CreateFriendRequestDto } from './dto/create-friend-request.dto';
@@ -21,5 +29,10 @@ export class FriendRequestsController {
   @Get(':id')
   findById(@Param('id') userId: string): Promise<FriendRequest[]> {
     return this.friendRequestService.findByReceiverId(userId);
+  }
+  @Delete(':id')
+  deleteRequest(@Param('íd') requestUuid: string): Promise<any> {
+    console.log(requestUuid);
+    return this.friendRequestService.delete(requestUuid);
   }
 }

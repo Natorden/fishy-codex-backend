@@ -11,6 +11,7 @@ export class FriendRequestsService {
   }
 
   create(senderUserId: string, receiverUserId: string): Promise<FriendRequest> {
+    console.log(senderUserId, receiverUserId);
     return this.friendRequestRepo.create(senderUserId, receiverUserId);
   }
 
@@ -20,5 +21,8 @@ export class FriendRequestsService {
 
   findByReceiverId(userId: string): Promise<FriendRequest[]> {
     return this.friendRequestRepo.getReceiverById(userId);
+  }
+  delete(requestUuid: string): Promise<any> {
+    return this.friendRequestRepo.delete(requestUuid);
   }
 }

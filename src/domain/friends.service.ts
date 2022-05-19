@@ -26,7 +26,7 @@ export class FriendsService {
     return this.friendRepo.getFriendsByUserid(uuid);
   }
 
-  remove(id: string) {
-    return this.friendRepo.delete(id);
+  remove(friendEntityId: string) {
+    return this.friendRepo.delete(friendEntityId);
   }
 }

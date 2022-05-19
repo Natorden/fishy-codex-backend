@@ -9,5 +9,5 @@ export interface IFriendRequestRepository {
 
   getById(id: string): Promise<FriendRequest>;
 
-  delete(id: string): Promise<any>;
+  delete(requestUuid: string): Promise<any>;
 }

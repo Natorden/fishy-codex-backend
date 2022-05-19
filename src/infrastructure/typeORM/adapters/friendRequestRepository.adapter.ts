@@ -37,7 +37,7 @@ export class FriendRequestRepositoryAdapter
     });
   }
 
-  delete(id: string): Promise<any> {
-    return this.friendRequestRepo.delete({ uuid: id });
+  delete(requestUuid: string): Promise<any> {
+    return this.friendRequestRepo.delete({ uuid: requestUuid });
   }
 }

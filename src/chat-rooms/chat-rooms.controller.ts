@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
 import { ChatRoomsService } from '../domain/chat-rooms.service';
 import { CreateChatRoomDto } from './dto/create-chat-room.dto';
 
@@ -8,7 +8,6 @@ export class ChatRoomsController {
 
   @Post()
   create(@Body() createChatRoomDto: CreateChatRoomDto) {
-    console.log(createChatRoomDto);
     return this.chatRoomsService.create(createChatRoomDto);
   }
 
@@ -20,5 +19,10 @@ export class ChatRoomsController {
   @Get(':uuid')
   findOne(@Param('uuid') uuid: string) {
     return this.chatRoomsService.findOne(uuid);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.chatRoomsService.remove(id);
   }
 }

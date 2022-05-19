@@ -17,7 +17,6 @@ export class ChatRoomRepositoryAdapter implements IChatRoomRepository {
   }
 
   create(name: string, userUuid: string): Promise<ChatRoom> {
-    console.log(name, userUuid);
     return this.chatRoomRepo.save({
       name: name,
       user: { uuid: userUuid },
@@ -39,7 +38,6 @@ export class ChatRoomRepositoryAdapter implements IChatRoomRepository {
             whereArr.push({ user: { uuid: friend.userOneId } });
           }
         }
-
         return this.chatRoomRepo.find({
           where: whereArr,
         });
@@ -47,9 +45,13 @@ export class ChatRoomRepositoryAdapter implements IChatRoomRepository {
   }
 
   async getWithUuid(uuid: string): Promise<ChatRoom> {
-    console.log('Bla bly');
     return await this.chatRoomRepo.findOne(uuid, {
       relations: ['chats', 'chats.user'],
     });
+  }
+
+  deleteChatRoom(id: string): Promise<any> {
+    return Promise.resolve(undefined);
+    //todo implement this to delete chatroom
   }
 }

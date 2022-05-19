@@ -25,18 +25,19 @@ export class FriendRequestsGateway {
   ) {}
 
   @SubscribeMessage('createFriendRequest')
-  create(@MessageBody() createFriendRequestDto: CreateFriendRequestDto) {
+  async create(@MessageBody() createFriendRequestDto: CreateFriendRequestDto) {
     /*
      * Listens to requests ->
      * creates request in the database ->
      * sends the request to the receiver uuid
      */
+    console.log(createFriendRequestDto);
     const newFriendRequest: CreateFriendRequestDto = {
       senderUserId: createFriendRequestDto.senderUserId,
       receiverUserId: createFriendRequestDto.receiverUserId,
     };
 
-    this.friendRequestsService
+    await this.friendRequestsService
       .create(newFriendRequest.senderUserId, newFriendRequest.receiverUserId)
       .then((fr) =>
         this.server.emit(newFriendRequest.receiverUserId, fr.senderUserId),

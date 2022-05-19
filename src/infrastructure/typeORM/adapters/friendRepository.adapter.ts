@@ -23,8 +23,8 @@ export class FriendRepositoryAdapter implements IFriendRepository {
     });
   }
 
-  delete(id: string): Promise<any> {
-    return this.friendRepo.delete({ uuid: id });
+  delete(friendEntityId: string): Promise<any> {
+    return this.friendRepo.delete({ uuid: friendEntityId });
   }
 
   getAll(): Promise<Friend[]> {

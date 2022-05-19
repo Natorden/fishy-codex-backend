@@ -24,7 +24,10 @@ export class ChatRoomsService {
   }
 
   findOne(uuid: string) {
-    console.log(uuid);
     return this.chatRoomRepo.getWithUuid(uuid);
+  }
+
+  remove(id: string) {
+    return this.chatRoomRepo.deleteChatRoom(id);
   }
 }
