@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { IFriendRequestRepository } from './borders/friendRequestRepository.interface';
 import { FriendRequest } from '../core/friend-request.entity';
+import { FriendRequestTransfer } from '../core/friend-request-transfer';
 
 @Injectable()
 export class FriendRequestsService {
@@ -11,7 +12,6 @@ export class FriendRequestsService {
   }
 
   create(senderUserId: string, receiverUserId: string): Promise<FriendRequest> {
-    console.log(senderUserId, receiverUserId);
     return this.friendRequestRepo.create(senderUserId, receiverUserId);
   }
 
@@ -19,7 +19,7 @@ export class FriendRequestsService {
     return this.friendRequestRepo.getSenderById(userId);
   }
 
-  findByReceiverId(userId: string): Promise<FriendRequest[]> {
+  findByReceiverId(userId: string): Promise<FriendRequestTransfer[]> {
     return this.friendRequestRepo.getReceiverById(userId);
   }
   delete(requestUuid: string): Promise<any> {
