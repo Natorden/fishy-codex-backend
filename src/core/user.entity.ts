@@ -8,6 +8,7 @@ export class User {
   age: number;
   email: string;
   password: string;
+  avatar: string;
   fish: Fish[];
   chats: Chat[];
   chatRooms: ChatRoom[];

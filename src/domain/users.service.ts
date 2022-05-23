@@ -13,8 +13,9 @@ export class UsersService {
     age: number,
     email: string,
     password: string,
+    avatar: string,
   ): Promise<User> {
-    return this.userRepo.create(name, age, email, password);
+    return this.userRepo.create(name, age, email, password, avatar);
   }
 
   login(email: string, password: string): Promise<User> {
@@ -39,8 +40,9 @@ export class UsersService {
     age: number,
     email: string,
     password: string,
+    avatar: string,
   ): Promise<User> {
-    return this.userRepo.updateUser(id, name, age, email, password);
+    return this.userRepo.updateUser(id, name, age, email, password, avatar);
   }
 
   remove(id: string) {

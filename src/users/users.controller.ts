@@ -25,6 +25,7 @@ export class UsersController {
       createUserDto.age,
       createUserDto.email,
       createUserDto.password,
+      createUserDto.avatar,
     );
   }
 
@@ -48,6 +49,7 @@ export class UsersController {
         updateUserDto.age,
         updateUserDto.email,
         updateUserDto.password,
+        updateUserDto.avatar,
       )
       .catch((err) => console.log(err.message));
   }

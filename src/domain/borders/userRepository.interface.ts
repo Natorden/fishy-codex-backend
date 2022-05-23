@@ -6,6 +6,7 @@ export interface IUserRepository {
     age: number,
     email: string,
     password: string,
+    avatar: string,
   ): Promise<User>;
 
   getUser(email: string, password: string): Promise<User>;
@@ -22,6 +23,7 @@ export interface IUserRepository {
     age: number,
     email: string,
     password: string,
+    avatar: string,
   ): Promise<User>;
 
   removeUser(id: string);

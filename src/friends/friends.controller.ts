@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Inject } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Inject, Delete } from "@nestjs/common";
 import { FriendsService } from '../domain/friends.service';
 import { CreateFriendDto } from './dto/create-friend.dto';
 import { UsersService } from '../domain/users.service';
@@ -40,5 +40,10 @@ export class FriendsController {
       }
       return this.userService.findByIds(friendIds);
     });
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.friendsService.remove(id);
   }
 }

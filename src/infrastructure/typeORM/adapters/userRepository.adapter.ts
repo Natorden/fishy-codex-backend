@@ -17,12 +17,14 @@ export class UserRepositoryAdapter implements IUserRepository {
     age: number,
     email: string,
     password: string,
+    avatar: string,
   ): Promise<User> {
     return this.userRepo.save({
       name: name,
       age: age,
       email: email,
       password: password,
+      avatar: avatar,
     });
   }
 
@@ -50,6 +52,7 @@ export class UserRepositoryAdapter implements IUserRepository {
     age: number,
     email: string,
     password: string,
+    avatar: string,
   ): Promise<User> {
     console.log(id, name, age, email, password);
     const updatedUser = await this.getUserById(id);
@@ -57,6 +60,7 @@ export class UserRepositoryAdapter implements IUserRepository {
     updatedUser.age = age;
     updatedUser.email = email;
     updatedUser.password = password;
+    updatedUser.avatar = avatar;
     return this.userRepo.save(updatedUser);
   }
 
