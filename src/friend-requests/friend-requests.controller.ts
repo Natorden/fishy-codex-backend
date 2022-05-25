@@ -7,10 +7,10 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
-import { FriendRequest } from '../core/friend-request.entity';
+import { FriendRequest } from '../domain/core/friend-request.entity';
 import { FriendRequestsService } from '../domain/friend-requests.service';
 import { CreateFriendRequestDto } from './dto/create-friend-request.dto';
-import { FriendRequestTransfer } from '../core/friend-request-transfer';
+import { FriendRequestTransfer } from '../domain/core/friend-request-transfer';
 
 @Controller('friend-requests')
 export class FriendRequestsController {

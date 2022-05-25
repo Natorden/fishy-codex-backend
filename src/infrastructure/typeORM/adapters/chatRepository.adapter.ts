@@ -1,8 +1,8 @@
-import { IChatRepository } from '../../../domain/borders/chatRepository.interface';
-import { Chat } from '../../../core/chat.entity';
+import { IChatRepository } from '../../../domain/interfaces/chatRepository.interface';
+import { Chat } from '../../../domain/core/chat.entity';
 import { CreateChatDto } from '../../../chats/dto/create-chat.dto';
 import { EntityManager, Repository } from 'typeorm';
-import { User } from '../../../core/user.entity';
+import { User } from '../../../domain/core/user.entity';
 import { ChatSchema } from '../schemas/chat.schema';
 import { UserSchema } from '../schemas/user.schema';
 import { Injectable } from '@nestjs/common';

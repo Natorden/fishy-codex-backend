@@ -1,4 +1,4 @@
-import { ChatRoom } from '../../core/chat-room.entity';
+import { ChatRoom } from '../core/chat-room.entity';
 
 export interface IChatRoomRepository {
   create(name: string, userUUID: string): Promise<ChatRoom>;

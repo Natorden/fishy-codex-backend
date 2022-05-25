@@ -1,6 +1,6 @@
-import { IFishRepository } from '../../../domain/borders/fishRepository.interface';
+import { IFishRepository } from '../../../domain/interfaces/fishRepository.interface';
 import { EntityManager, Repository } from 'typeorm';
-import { Fish } from '../../../core/fish.entity';
+import { Fish } from '../../../domain/core/fish.entity';
 import { FishSchema } from '../schemas/fish.schema';
 import { Injectable } from '@nestjs/common';
 import { UpdateFishyDto } from '../../../fishy/dto/update-fishy.dto';
@@ -18,14 +18,16 @@ export class FishRepositoryAdapter implements IFishRepository {
     species: string,
     length: number,
     weight: number,
+    image: string,
     userUuid: string,
   ): Promise<Fish> {
-    console.log(catchName, species, length, weight, userUuid);
+    console.log(catchName, species, length, weight, userUuid, image);
     return this.fishRepo.save({
       catchName: catchName,
       species: species,
       length: length,
       weight: weight,
+      image: image,
       user: { uuid: userUuid },
     });
   }
@@ -44,6 +46,7 @@ export class FishRepositoryAdapter implements IFishRepository {
     updatedFish.species = updateFishyDto.species;
     updatedFish.length = updateFishyDto.length;
     updatedFish.weight = updateFishyDto.weight;
+    updatedFish.image = updateFishyDto.image;
     return this.fishRepo.save(updatedFish);
   }
 

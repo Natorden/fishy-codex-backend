@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { IFishRepository } from './borders/fishRepository.interface';
-import { Fish } from '../core/fish.entity';
+import { IFishRepository } from './interfaces/fishRepository.interface';
+import { Fish } from './core/fish.entity';
 import { UpdateFishyDto } from '../fishy/dto/update-fishy.dto';
 
 @Injectable()
@@ -16,9 +16,17 @@ export class FishyService {
     species: string,
     length: number,
     weight: number,
+    image: string,
     userUuid: string,
   ): Promise<Fish> {
-    return this.fishRepo.create(catchName, species, length, weight, userUuid);
+    return this.fishRepo.create(
+      catchName,
+      species,
+      length,
+      weight,
+      image,
+      userUuid,
+    );
   }
 
   findAll(): Promise<Fish[]> {

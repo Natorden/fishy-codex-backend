@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateFriendDto } from '../friends/dto/create-friend.dto';
-import { Friend } from '../core/friend.entity';
-import { IFriendRepository } from './borders/friendRepository.interface';
+import { Friend } from './core/friend.entity';
+import { IFriendRepository } from './interfaces/friendRepository.interface';
 
 @Injectable()
 export class FriendsService {

@@ -1,5 +1,5 @@
 import { EntitySchema } from 'typeorm';
-import { Fish } from '../../../core/fish.entity';
+import { Fish } from '../../../domain/core/fish.entity';
 
 export const FishSchema = new EntitySchema<Fish>({
   name: 'Fish',
@@ -21,6 +21,9 @@ export const FishSchema = new EntitySchema<Fish>({
     },
     weight: {
       type: 'double',
+    },
+    image: {
+      type: 'varchar',
     },
   },
   relations: {

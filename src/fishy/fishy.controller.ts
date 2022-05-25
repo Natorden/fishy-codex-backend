@@ -27,6 +27,7 @@ export class FishyController {
         createFishyDto.species,
         createFishyDto.length,
         createFishyDto.weight,
+        createFishyDto.image,
         createFishyDto.userUuid,
       )
       .catch((err) => console.log(err.message));

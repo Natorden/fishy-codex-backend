@@ -1,6 +1,6 @@
-import { User } from '../../../core/user.entity';
+import { User } from '../../../domain/core/user.entity';
 import { EntitySchema } from 'typeorm';
-import { Fish } from '../../../core/fish.entity';
+import { Fish } from '../../../domain/core/fish.entity';
 
 export const UserSchema = new EntitySchema<User>({
   name: 'User',
@@ -21,6 +21,9 @@ export const UserSchema = new EntitySchema<User>({
       type: 'varchar',
     },
     password: {
+      type: 'varchar',
+    },
+    avatar: {
       type: 'varchar',
     },
   },

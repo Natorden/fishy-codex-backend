@@ -6,5 +6,6 @@ export class Fish {
   species: string;
   length: number;
   weight: number;
+  image: string;
   user: User;
 }

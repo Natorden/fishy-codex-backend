@@ -1,7 +1,7 @@
-import { IFriendRepository } from '../../../domain/borders/friendRepository.interface';
+import { IFriendRepository } from '../../../domain/interfaces/friendRepository.interface';
 import { EntityManager, Repository } from 'typeorm';
-import { Friend } from '../../../core/friend.entity';
-import { User } from '../../../core/user.entity';
+import { Friend } from '../../../domain/core/friend.entity';
+import { User } from '../../../domain/core/user.entity';
 import { FriendSchema } from '../schemas/friend.schema';
 import { UserSchema } from '../schemas/user.schema';
 import { Injectable } from '@nestjs/common';

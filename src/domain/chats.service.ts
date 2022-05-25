@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateChatDto } from '../chats/dto/create-chat.dto';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { IChatRepository } from './borders/chatRepository.interface';
+import { IChatRepository } from './interfaces/chatRepository.interface';
 
 @Injectable()
 export class ChatsService {

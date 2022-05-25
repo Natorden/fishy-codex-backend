@@ -1,5 +1,5 @@
 import { EntitySchema } from 'typeorm';
-import { Friend } from '../../../core/friend.entity';
+import { Friend } from '../../../domain/core/friend.entity';
 
 export const FriendSchema = new EntitySchema<Friend>({
   name: 'Friend',

@@ -1,5 +1,5 @@
-import { FriendRequest } from '../../core/friend-request.entity';
-import { FriendRequestTransfer } from '../../core/friend-request-transfer';
+import { FriendRequest } from '../core/friend-request.entity';
+import { FriendRequestTransfer } from '../core/friend-request-transfer';
 
 export interface IFriendRequestRepository {
   create(senderUserId: string, receiverUserId: string): Promise<FriendRequest>;

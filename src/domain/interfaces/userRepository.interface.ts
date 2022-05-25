@@ -1,4 +1,4 @@
-import { User } from '../../core/user.entity';
+import { User } from '../core/user.entity';
 
 export interface IUserRepository {
   create(

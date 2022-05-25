@@ -1,4 +1,4 @@
-import { Fish } from '../../core/fish.entity';
+import { Fish } from '../core/fish.entity';
 import { UpdateFishyDto } from '../../fishy/dto/update-fishy.dto';
 
 export interface IFishRepository {
@@ -7,6 +7,7 @@ export interface IFishRepository {
     species: string,
     length: number,
     weight: number,
+    image: string,
     userUuid: string,
   ): Promise<Fish>;
 

@@ -1,5 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsString, MaxLength, Min, MinLength } from "class-validator";
+import {
+  IsNumber,
+  IsString,
+  IsUrl,
+  MaxLength,
+  Min,
+  MinLength,
+} from 'class-validator';
 
 export class CreateFishyDto {
   @IsString()
@@ -20,6 +27,9 @@ export class CreateFishyDto {
   @IsNumber()
   @ApiProperty()
   weight: number;
+  @IsUrl()
+  @ApiProperty()
+  image: string;
   @ApiProperty()
   userUuid: string;
 }

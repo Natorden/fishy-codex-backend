@@ -1,11 +1,11 @@
-import { IFriendRequestRepository } from '../../../domain/borders/friendRequestRepository.interface';
-import { FriendRequest } from '../../../core/friend-request.entity';
+import { IFriendRequestRepository } from '../../../domain/interfaces/friendRequestRepository.interface';
+import { FriendRequest } from '../../../domain/core/friend-request.entity';
 import { EntityManager, Repository } from 'typeorm';
 import { FriendRequestSchema } from '../schemas/friendRequest.schema';
 import { Injectable } from '@nestjs/common';
-import { User } from '../../../core/user.entity';
+import { User } from '../../../domain/core/user.entity';
 import { UserSchema } from '../schemas/user.schema';
-import { FriendRequestTransfer } from '../../../core/friend-request-transfer';
+import { FriendRequestTransfer } from '../../../domain/core/friend-request-transfer';
 
 @Injectable()
 export class FriendRequestRepositoryAdapter

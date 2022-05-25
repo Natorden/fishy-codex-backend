@@ -1,4 +1,4 @@
-import { Fish } from '../../core/fish.entity';
+import { Fish } from '../../domain/core/fish.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class User {

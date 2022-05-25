@@ -1,5 +1,5 @@
 import { EntitySchema } from 'typeorm';
-import { Chat } from '../../../core/chat.entity';
+import { Chat } from '../../../domain/core/chat.entity';
 
 export const ChatSchema = new EntitySchema<Chat>({
   name: 'Chat',

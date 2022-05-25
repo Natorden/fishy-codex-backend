@@ -1,4 +1,4 @@
-import { Friend } from '../../core/friend.entity';
+import { Friend } from '../core/friend.entity';
 
 export interface IFriendRepository {
   getFriendsByUserid(uuid: string): Promise<Friend[]>;

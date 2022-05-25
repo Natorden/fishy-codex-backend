@@ -1,5 +1,5 @@
-import { User } from '../core/user.entity';
-import { IUserRepository } from './borders/userRepository.interface';
+import { User } from './core/user.entity';
+import { IUserRepository } from './interfaces/userRepository.interface';
 
 export class UsersService {
   private userRepo: IUserRepository;

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { IFriendRequestRepository } from './borders/friendRequestRepository.interface';
-import { FriendRequest } from '../core/friend-request.entity';
-import { FriendRequestTransfer } from '../core/friend-request-transfer';
+import { IFriendRequestRepository } from './interfaces/friendRequestRepository.interface';
+import { FriendRequest } from './core/friend-request.entity';
+import { FriendRequestTransfer } from './core/friend-request-transfer';
 
 @Injectable()
 export class FriendRequestsService {

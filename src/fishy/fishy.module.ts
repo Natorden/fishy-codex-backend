@@ -4,7 +4,7 @@ import { FishyController } from './fishy.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FishSchema } from '../infrastructure/typeORM/schemas/fish.schema';
 import { FishRepositoryAdapter } from '../infrastructure/typeORM/adapters/fishRepository.adapter';
-import { IFishRepository } from '../domain/borders/fishRepository.interface';
+import { IFishRepository } from '../domain/interfaces/fishRepository.interface';
 
 @Module({
   imports: [TypeOrmModule.forFeature([FishSchema])],

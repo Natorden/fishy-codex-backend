@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FriendRequestSchema } from '../infrastructure/typeORM/schemas/friendRequest.schema';
 import { UsersModule } from '../users/users.module';
 import { FriendRequestsController } from './friend-requests.controller';
-import { IFriendRequestRepository } from '../domain/borders/friendRequestRepository.interface';
+import { IFriendRequestRepository } from '../domain/interfaces/friendRequestRepository.interface';
 import { FriendRequestRepositoryAdapter } from '../infrastructure/typeORM/adapters/friendRequestRepository.adapter';
 
 @Module({

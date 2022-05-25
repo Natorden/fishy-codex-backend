@@ -1,7 +1,7 @@
-import { IChatRoomRepository } from '../../../domain/borders/chatRoomRepository.interface';
+import { IChatRoomRepository } from '../../../domain/interfaces/chatRoomRepository.interface';
 import { EntityManager, Repository } from 'typeorm';
-import { ChatRoom } from '../../../core/chat-room.entity';
-import { Friend } from '../../../core/friend.entity';
+import { ChatRoom } from '../../../domain/core/chat-room.entity';
+import { Friend } from '../../../domain/core/friend.entity';
 import { ChatRoomSchema } from '../schemas/chatRoom.schema';
 import { FriendSchema } from '../schemas/friend.schema';
 import { Injectable } from '@nestjs/common';

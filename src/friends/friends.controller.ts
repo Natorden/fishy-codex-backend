@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Param, Inject, Delete } from "@nestjs/comm
 import { FriendsService } from '../domain/friends.service';
 import { CreateFriendDto } from './dto/create-friend.dto';
 import { UsersService } from '../domain/users.service';
-import { User } from '../core/user.entity';
+import { User } from '../domain/core/user.entity';
 
 @Controller('friends')
 export class FriendsController {
