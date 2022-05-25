@@ -21,6 +21,7 @@ export class ChatRepositoryAdapter implements IChatRepository {
     return this.userRepo.findOne(createChatDto.userUUID).then((user) => {
       return this.chatRepo.save({
         text: createChatDto.text,
+        fishImage: createChatDto.fishImage,
         chatRoom: { uuid: createChatDto.chatRoom },
         user: user,
       });

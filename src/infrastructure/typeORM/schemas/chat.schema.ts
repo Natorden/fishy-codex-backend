@@ -13,6 +13,10 @@ export const ChatSchema = new EntitySchema<Chat>({
     text: {
       type: 'varchar',
     },
+    fishImage: {
+      nullable: true,
+      type: 'varchar',
+    },
   },
   relations: {
     chatRoom: {
